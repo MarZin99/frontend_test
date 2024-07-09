@@ -1,0 +1,60 @@
+.header {
+  height: 6rem;
+  position: absolute;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .icon-container {
+    width: 10rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .icon-background {
+      background-color: rgb(48, 48, 48);
+      width: 5rem;
+      height: 5rem;
+      border-radius: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:hover {
+        background-color: orange;
+        cursor: pointer;
+      }
+      * {
+        font-size: 3.5rem;
+        margin-top: 0.75rem;
+        color: white;
+      }
+    }
+  }
+
+  .task-info {
+    font-size: x-large;
+    margin: 0rem 2rem;
+    font-size: 1.5rem;
+    color: white;
+    display: grid;
+    .row {
+      display: flex;
+      justify-content: end;
+      &.sub-name {
+        margin: 0 0.5rem 0 0;
+        font-size: 1rem;
+        &.hidden {
+          display: none;
+        }
+      }
+      & p {
+        margin: 0 0.5rem 0 0;
+        &:nth-child(2) {
+          font-weight: 800;
+        }
+      }
+    }
+  }
+}

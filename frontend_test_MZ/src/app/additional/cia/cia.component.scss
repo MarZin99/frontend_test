@@ -1,0 +1,39 @@
+.container {
+  height: 6rem;
+  width: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(48, 48, 48);
+  font-size: 1.25rem;
+  overflow: hidden;
+
+  .square {
+    border: 1px solid rgb(48, 48, 48);
+    height: 4.5rem;
+    width: 4.5rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.7s linear;
+    &:hover {
+      transform: rotate(360deg);
+    }
+    div {
+      transition: transform 0.7s linear;
+      &:hover {
+        transform: rotate(-360deg);
+      }
+    }
+
+    &:hover {
+      border-color: orange;
+      color: gray;
+      cursor: pointer;
+    }
+    p {
+      height: 1rem;
+      margin: 0.15rem 0rem 0.25rem 0.25rem;
+    }
+  }
+}

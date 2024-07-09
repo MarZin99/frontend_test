@@ -1,1 +1,78 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: Calibri;
+  font-size: 1.5rem;
+
+  button.button {
+    width: 8rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px gray;
+    border-radius: 3px;
+    display: flex;
+    color: rgb(164, 168, 180);
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: rgb(42, 45, 54);
+    &.inverted {
+      background-color: black;
+      border: solid 1px rgb(48, 48, 48);
+      height: 1.5rem;
+      color: white;
+      &:hover {
+        background-color: black;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      border-color: white !important;
+      background-color: orange;
+    }
+  }
+
+  input[type="radio"] {
+    appearance: none;
+    background-color: none;
+    margin: 0.25rem 0.5rem;
+    font: inherit;
+    color: white;
+    width: 1.75em;
+    height: 1.75em;
+    border: solid white 0.25em;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+
+    &:checked::before {
+      transform: scale(1);
+    }
+    &::before {
+      content: "";
+      width: 0.85rem;
+      height: 0.85rem;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: 120ms transform ease-in-out;
+      box-shadow: inset 1rem 1rem white;
+    }
+    &:hover {
+      background-color: orange;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    //medium
+    font-size: 1.4rem;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="title">
+      <h1>Nagłówek H1</h1>
+      <div class="underline"></div>
+    </div>
+  </div>
+
+  <div class="block-container">
+    <div class="block">
+      <app-radio-block (radioSelectedEvent)="onRadioSelect($event)" />
+    </div>
+    <div class="block">
+      <app-action-block (editSentence)="editDisplayedArray($event)" />
+    </div>
+    <div class="block">
+      <app-text-block [sentences]="sentencesToDisplay" />
+    </div>
+  </div>
+</div>
