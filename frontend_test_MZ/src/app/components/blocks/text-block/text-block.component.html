@@ -4,7 +4,7 @@
     PRZYCIĄĆ
   </div>
   <div class="content">
-    @for (sentence of sentences; track sentence.id) {
+    @for (sentence of sentences | sort:'description'; track sentence ) {
     {{ sentence.description }}
     }
   </div>
