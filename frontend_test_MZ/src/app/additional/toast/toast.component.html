@@ -1,0 +1,21 @@
+@if (toastPackage) {
+<div class="container">
+  <div class="icon">
+    @switch (toastPackage.toastType) { @case ("error") {
+    <div class="error"><fa-icon [icon]="faExclamationCircle" /></div>
+    } @case ("success") {
+    <div class="success"><fa-icon [icon]="faCheckCircle" /></div>
+    } @case ("warning") {
+    <div class="warning"><fa-icon [icon]="faExclamationTriangle" /></div>
+    } @case ("info") {
+    <div class="info"><fa-icon [icon]="faExclamationCircle" /></div>
+    } }
+  </div>
+  <div class="content">
+    <div class="title">{{ title }}</div>
+    <div class="message">
+      {{ message }}
+    </div>
+  </div>
+</div>
+}

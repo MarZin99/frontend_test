@@ -4,6 +4,7 @@ import { ActionBlockComponent } from '../blocks/action-block/action-block.compon
 import { TextBlockComponent } from '../blocks/text-block/text-block.component';
 import { Sentence } from '../../models/sentence.model';
 import { HttpClient } from '@angular/common/http';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-content',
@@ -13,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
   imports: [RadioBlockComponent, ActionBlockComponent, TextBlockComponent],
 })
 export class ContentComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private toastService: ToastService) {}
 
   private dataUrl: string = '../../../assets/data.json';
   selectedOption = -1;
@@ -40,7 +41,10 @@ export class ContentComponent implements OnInit {
   }
 
   editDisplayedArray(typeOfButton: string) {
-    if (this.selectedOption == -1) throw new Error('Wybierz opcję!');
+    if (this.selectedOption == -1) {
+      this.toastService.showError('Wybierz opcję!');
+      throw new Error('Wybierz opcję!');
+    }
 
     if (typeOfButton == 'replace') {
       this.replaceSentenceList(this.selectedOption);
@@ -86,6 +90,7 @@ export class ContentComponent implements OnInit {
         case 0:
           {
             if (this.sentencesToDisplay.find((x) => x.id == 1)) {
+              this.toastService.showError('Opcja już jest wyświetlona');
               throw new Error('Opcja już jest wyświetlona');
             } else {
               var sentence = this.allSentencesBackup[0];
@@ -96,6 +101,7 @@ export class ContentComponent implements OnInit {
         case 1:
           {
             if (this.sentencesToDisplay.find((x) => x.id == 2)) {
+              this.toastService.showError('Opcja już jest wyświetlona');
               throw new Error('Opcja już jest wyświetlona');
             } else {
               var sentence = this.allSentencesBackup[1];
@@ -119,6 +125,7 @@ export class ContentComponent implements OnInit {
     }
 
     if (this.allSentences.length < 1) {
+      this.toastService.showError('Nie ma już więcej sentencji');
       throw new Error('Nie ma już więcej sentencji');
     }
     var randomToDelete = Math.floor(Math.random() * this.allSentences.length);
