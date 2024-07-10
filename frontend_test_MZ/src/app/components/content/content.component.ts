@@ -23,8 +23,6 @@ export class ContentComponent implements OnInit {
 
   private dataUrl: string = '../../../assets/data.json';
   selectedOption = -1;
-  allSentences: Sentence[] = [];
-  allSentencesBackup: Sentence[] = [];
   sentencesToDisplay: Sentence[] = [];
   randomMIN = 2;
   randomMAX = 0;
@@ -35,12 +33,8 @@ export class ContentComponent implements OnInit {
 
   getSentencesFromFile() {
     this.http.get<Sentence[]>(this.dataUrl).subscribe((data) => {
-      this.allSentences = [...data];
-      this.allSentencesBackup = [...data];
       this.randomMAX = data.length - 1;
-
-      this.localStorage.save('allSentences', this.allSentences);
-      console.log(this.localStorage.getAll('allSentences'));
+      this.localStorage.overwrite('allSentences', [...data]);
     });
   }
 
@@ -65,15 +59,13 @@ export class ContentComponent implements OnInit {
   replaceSentenceList(radio: number) {
     switch (radio) {
       case 0:
-        this.allSentences = [...this.allSentencesBackup];
-        this.sentencesToDisplay = this.allSentences.splice(0, 1);
+        this.sentencesToDisplay = [this.localStorage.get('allSentences', 1)];
         break;
       case 1:
-        this.allSentences = [...this.allSentencesBackup];
-        this.sentencesToDisplay = this.allSentences.splice(1, 1);
+        this.sentencesToDisplay = [this.localStorage.get('allSentences', 2)];
         break;
       case 2:
-        this.sentencesToDisplay = [this.getRandomObject('replace')];
+        this.sentencesToDisplay = [this.getFirstRandomObject()];
         break;
     }
   }
@@ -82,15 +74,17 @@ export class ContentComponent implements OnInit {
     if (this.sentencesToDisplay.length < 1) {
       switch (radio) {
         case 0:
-          var sentence = this.allSentencesBackup[0];
-          this.sentencesToDisplay.push(sentence);
+          this.sentencesToDisplay.push(
+            this.localStorage.get('allSentences', 1)
+          );
           break;
         case 1:
-          var sentence = this.allSentencesBackup[1];
-          this.sentencesToDisplay.push(sentence);
+          this.sentencesToDisplay.push(
+            this.localStorage.get('allSentences', 2)
+          );
           break;
         case 2:
-          this.sentencesToDisplay.push(this.getRandomObject('add'));
+          this.sentencesToDisplay.push(this.getFirstRandomObject());
           break;
       }
     } else {
@@ -101,7 +95,7 @@ export class ContentComponent implements OnInit {
               this.toastService.showError('Opcja już jest wyświetlona');
               throw new Error('Opcja już jest wyświetlona');
             } else {
-              var sentence = this.allSentencesBackup[0];
+              var sentence = this.localStorage.get('allSentences', 1);
               this.sentencesToDisplay.push(sentence);
             }
           }
@@ -112,31 +106,58 @@ export class ContentComponent implements OnInit {
               this.toastService.showError('Opcja już jest wyświetlona');
               throw new Error('Opcja już jest wyświetlona');
             } else {
-              var sentence = this.allSentencesBackup[1];
+              var sentence = this.localStorage.get('allSentences', 2);
               this.sentencesToDisplay.push(sentence);
             }
           }
           break;
         case 2:
-          var randomObject = this.getRandomObject('add');
+          var randomObject = this.getRandomObject();
           this.sentencesToDisplay.push(randomObject);
           break;
       }
     }
   }
 
-  getRandomObject(type: string) {
-    var random = Math.floor(Math.random() * this.allSentences.length);
-    if (type == 'replace') {
-      var sentences = [...this.allSentencesBackup];
-      return sentences[random];
-    }
+  getFirstRandomObject() {
+    let allSentencesLocaly = this.localStorage.getAll('allSentences');
+    var random = Math.floor(Math.random() * allSentencesLocaly.length);
+    return allSentencesLocaly[random];
+  }
 
-    if (this.allSentences.length < 1) {
-      this.toastService.showError('Nie ma już więcej sentencji');
-      throw new Error('Nie ma już więcej sentencji');
+  getRandomObject() {
+    let allSentencesLocaly = this.localStorage.getAll('allSentences');
+    var uniqueRecords = this.findUniqueRecords(
+      allSentencesLocaly,
+      this.sentencesToDisplay
+    );
+
+    var random = Math.floor(Math.random() * uniqueRecords.length);
+
+    return uniqueRecords[random];
+  }
+
+  findUniqueRecords(source: Sentence[], displayed: Sentence[]) {
+    if (source.length == displayed.length) {
+      this.toastService.showError('Nie ma już niepowtarzających się rekordów');
+      throw new Error();
     }
-    var randomToDelete = Math.floor(Math.random() * this.allSentences.length);
-    return this.allSentences.splice(randomToDelete, 1)[0];
+    let dispplayedSentenceIDS = new Set(
+      displayed.map((sentence) => sentence.id)
+    );
+    let uniqueRecords = source.filter(
+      (sentence) => !dispplayedSentenceIDS.has(sentence.id)
+    );
+    return uniqueRecords;
+  }
+
+  removeSentence(sentenceId: number) {
+    let index = this.sentencesToDisplay.findIndex((x) => x.id == sentenceId);
+
+    if (index == -1) {
+      this.toastService.showError('Nie znaleziono takiej sentencji');
+    } else {
+      this.sentencesToDisplay.splice(index, 1);
+    }
   }
 }

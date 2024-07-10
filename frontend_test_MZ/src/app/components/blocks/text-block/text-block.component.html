@@ -5,7 +5,12 @@
   </div>
   <div class="content">
     @for (sentence of sentences | sort:'description'; track sentence ) {
-    {{ sentence.description }}
+    <div class="tag">
+      <div class="row">{{ sentence.description }}</div>
+      <div class="row" (click)="test(sentence.id)">
+        <fa-icon [icon]="closeIcon" />
+      </div>
+    </div>
     }
   </div>
 </div>

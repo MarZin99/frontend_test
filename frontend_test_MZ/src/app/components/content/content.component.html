@@ -14,7 +14,10 @@
       <app-action-block (editSentence)="editDisplayedArray($event)" />
     </div>
     <div class="block">
-      <app-text-block [sentences]="sentencesToDisplay" />
+      <app-text-block
+        [sentences]="sentencesToDisplay"
+        (removeSentence)="removeSentence($event)"
+      />
     </div>
   </div>
 </div>

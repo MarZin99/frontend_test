@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.subName = this.nameProvider.subPageName;
     this.subscription = this.nameProvider.boolean$.subscribe((value) => {
       this.isVisible = value;
-      console.log('value', value);
     });
   }
   ngOnDestroy(): void {
