@@ -96,9 +96,26 @@
   }
 }
 
+@keyframes slideInMobile {
+  from {
+    transform: translateY(2rem);
+  }
+  to {
+    transform: translateY(-3rem);
+  }
+}
+@keyframes slideOutMobile {
+  from {
+    transform: translateY(-3rem);
+  }
+  to {
+    transform: translateY(2rem);
+  }
+}
+
 .slideIn {
   animation-name: slideIn;
-  transform: translateY(-9rem);
+  transform: translateY(-3rem);
 }
 .slideOut {
   animation-name: slideOut;

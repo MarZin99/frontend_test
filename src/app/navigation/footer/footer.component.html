@@ -1,7 +1,9 @@
 <div
   class="menu"
-  [class.slideIn]="isVisible"
-  [class.slideOut]="!isVisible"
+  [class.slideIn]="isVisible && !isMobile"
+  [class.slideOut]="!isVisible && !isMobile"
+  [class.slideInMobile]="isVisible && isMobile"
+  [class.slideOutMobile]="!isVisible && isMobile"
   [class.mobile]="isMobile"
 >
   <div class="dropdown-option" [class.mobile]="isMobile" (click)="resetPage()">

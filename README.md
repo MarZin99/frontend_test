@@ -20,3 +20,7 @@ Nie jestem pewien czy o to chodziło, ale dane są podłączone do localStorage 
 
 - Zastosowanie BEM -> Zdałem sobie sprawę o syntaxie gdy miałem już prawie cały gotowy projekt
 - Button POKAŻ bez JS
+
+### Podsumowanie
+
+Wykonując zadanie korzystałem najnowszej wersji Angulara, dlatego też chciałem skupić się na wykorzystaniu kilku możliwość, które owa wersja udostępnia. Mam nadzieje, że dostarczony przez mnie kod pozwoli na przejście do kolejnego etapu rekturacji
