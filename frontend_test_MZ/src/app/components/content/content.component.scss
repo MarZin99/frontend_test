@@ -1,10 +1,11 @@
 .container {
+  overflow: auto;
   height: 100%;
   background-color: rgb(42, 45, 54);
   color: white;
   padding-top: 2rem;
   display: grid;
-  grid-template-rows: 5rem auto;
+  grid-template-rows: min-content auto;
   .row {
     display: flex;
     justify-content: center;
@@ -23,31 +24,24 @@
   }
 
   .block-container {
-    width: 100%;
+    width: 100vw;
     display: grid;
-    grid-template-columns: 33.3333% 33.3333% 33%;
-
-    .block {
-      width: 100%;
-      // border: 1px solid red;
-    }
-
-    @media only screen and (max-width: 768px) {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: min-content 1fr;
-
-      .block {
-        &:nth-child(3) {
-          grid-column-start: 1;
-          grid-column-end: 3;
-        }
-      }
-    }
+    grid-template-columns: 33.3333% 33.3333% 33.3333%;
   }
 }
 
 @media only screen and (max-width: 768px) {
   .container {
     padding-top: 1rem;
+
+    .block-container {
+      grid-template-columns: auto auto;
+
+      .block {
+        &:nth-child(3) {
+          grid-column: 1 /3;
+        }
+      }
+    }
   }
 }

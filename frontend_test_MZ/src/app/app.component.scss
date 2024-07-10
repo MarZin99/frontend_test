@@ -2,13 +2,4 @@
   display: grid;
   grid-template-rows: 6rem auto 6rem;
   height: 100vh;
-  :nth-child(0) {
-    background-color: rgb(104, 64, 64);
-  }
-  :nth-child(1) {
-    background-color: rgb(113, 175, 113);
-  }
-  :nth-child(3) {
-    background-color: rgb(37, 37, 126);
-  }
 }
