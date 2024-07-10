@@ -17,12 +17,14 @@
     transition: transform 0.7s linear;
     &:hover {
       transform: rotate(360deg);
-    }
-    div {
-      transition: transform 0.7s linear;
-      &:hover {
+      div {
         transform: rotate(-360deg);
       }
+    }
+    div {
+      height: 4.5rem;
+      width: 4.5rem;
+      transition: transform 0.7s linear;
     }
 
     &:hover {
