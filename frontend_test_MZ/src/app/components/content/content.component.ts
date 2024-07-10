@@ -5,6 +5,7 @@ import { TextBlockComponent } from '../blocks/text-block/text-block.component';
 import { Sentence } from '../../models/sentence.model';
 import { HttpClient } from '@angular/common/http';
 import { ToastService } from '../../services/toast.service';
+import { LocalStorage } from '../../services/localStorage.service';
 
 @Component({
   selector: 'app-content',
@@ -14,7 +15,11 @@ import { ToastService } from '../../services/toast.service';
   imports: [RadioBlockComponent, ActionBlockComponent, TextBlockComponent],
 })
 export class ContentComponent implements OnInit {
-  constructor(private http: HttpClient, private toastService: ToastService) {}
+  constructor(
+    private http: HttpClient,
+    private toastService: ToastService,
+    private localStorage: LocalStorage
+  ) {}
 
   private dataUrl: string = '../../../assets/data.json';
   selectedOption = -1;
@@ -33,6 +38,9 @@ export class ContentComponent implements OnInit {
       this.allSentences = [...data];
       this.allSentencesBackup = [...data];
       this.randomMAX = data.length - 1;
+
+      this.localStorage.save('allSentences', this.allSentences);
+      console.log(this.localStorage.getAll('allSentences'));
     });
   }
 
