@@ -1,27 +1,22 @@
-# FrontendTestMZ
+# Główne cele udało się wykonać wszystkie.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.7.
+## Cele Dodatkowe
 
-## Development server
+- Wrzucenie projektu w Framework Angular 18.
+- Brak plików graficznych.
+- CSS IS AWESOME wykonuje obrót po najechaniu myszką.
+- Spełnione zasady a11y.
+- Wykorzystywanie głównie jednostek rem,vh,vw.
+- Mobile First.
+- Doklejone treści są sortowane alfabetycznie (pipe).
+- Walidacja wykonywanych operacji oraz implementacja serwisu z powiadomieniami TOAST.
+- Rezultat prac wrzucony do podgladu na netify ([master--zawadzki-front-end](https://master--zawadzki-front-end.netlify.app)).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Zadanie na 6
 
-## Code scaffolding
+Nie jestem pewien czy o to chodziło, ale dane są podłączone do localStorage (poza możliwością dodania oraz zastąpienia sentencji z pliku JSON dodałem jeszcze możliwość usuwania konkretnej sentencji przez kliknięcie krzyżyka obok)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Cele które się nie powiodły
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Zastosowanie BEM -> Zdałem sobie sprawę o syntaxie gdy miałem już prawie cały gotowy projekt
+- Button POKAŻ bez JS

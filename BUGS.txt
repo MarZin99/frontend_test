@@ -1,6 +1,0 @@
-1. Radio buttons on hover -> whole line instead of just text
-2. LOK DRUGI - should make more margin at right side 
-3. LOCAL STORAGE DOESNT STORE DATA! ()
-4. Toast makes error
-5. Reset Page
-6. @media deosnt work
