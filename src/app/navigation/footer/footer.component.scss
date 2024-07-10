@@ -8,6 +8,9 @@
   justify-content: space-between;
 
   .company {
+    &.hidden {
+      display: none;
+    }
     width: 10rem;
     display: flex;
     justify-content: center;
@@ -33,21 +36,6 @@
       background-color: rgb(48, 48, 48);
     }
   }
-
-  @media only screen and (max-width: 768px) {
-    .company {
-      display: none;
-    }
-  }
-}
-
-.slideIn {
-  animation-name: slideIn;
-  transform: translateY(-3rem);
-}
-.slideOut {
-  animation-name: slideOut;
-  transform: translateY(2rem);
 }
 
 .menu {
@@ -59,12 +47,27 @@
   transition: transform 0.3s ease-in-out;
   justify-content: center;
   box-shadow: 0px 0px 12px 3px rgba(41, 41, 41, 0.795);
+  &.mobile {
+    height: 8rem;
+    width: 27rem;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+  }
 
   .dropdown-option {
     margin: 0.5rem 0 0 0.75rem;
     display: flex;
     justify-content: left;
     font-size: 0.7rem;
+    &.mobile {
+      align-items: center;
+      width: 100%;
+      font-size: 2rem;
+      fa-icon {
+        font-size: 1.8rem;
+      }
+    }
     fa-icon {
       margin: auto 0.3rem 0 0.25rem;
       font-size: 0.6rem;
@@ -81,14 +84,23 @@
     transform: translateY(2rem);
   }
   to {
-    transform: translateY(-3rem);
+    transform: translateY(-9rem);
   }
 }
 @keyframes slideOut {
   from {
-    transform: translateY(-3rem);
+    transform: translateY(-9rem);
   }
   to {
     transform: translateY(2rem);
   }
+}
+
+.slideIn {
+  animation-name: slideIn;
+  transform: translateY(-9rem);
+}
+.slideOut {
+  animation-name: slideOut;
+  transform: translateY(2rem);
 }

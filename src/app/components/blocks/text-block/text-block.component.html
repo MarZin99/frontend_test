@@ -5,7 +5,7 @@
   </div>
   <div class="content">
     @for (sentence of sentences | sort:'description'; track sentence ) {
-    <div class="tag">
+    <div class="tag" [class.mobile]="isMobile">
       <div class="row">{{ sentence.description }}</div>
       <div class="row" (click)="test(sentence.id)">
         <fa-icon [icon]="closeIcon" />

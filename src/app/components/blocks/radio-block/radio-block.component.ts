@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-radio-block',
@@ -8,6 +9,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './radio-block.component.scss',
 })
 export class RadioBlockComponent {
+  constructor(private deviceDetector: DeviceDetectorService) {}
+  isMobile = this.deviceDetector.isMobile();
   @Output() radioSelectedEvent = new EventEmitter<number>();
   selectedRadioItem = 0;
 

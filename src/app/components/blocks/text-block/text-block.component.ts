@@ -3,6 +3,7 @@ import { Sentence } from '../../../models/sentence.model';
 import { SortPipe } from '../../../pipes/sort.pipe';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-text-block',
@@ -12,6 +13,8 @@ import { faX } from '@fortawesome/free-solid-svg-icons';
   styleUrl: './text-block.component.scss',
 })
 export class TextBlockComponent {
+  constructor(private deviceDetector: DeviceDetectorService) {}
+  isMobile = this.deviceDetector.isMobile();
   @Output() removeSentence = new EventEmitter<number>();
 
   @Input() sentences: Sentence[] = [];

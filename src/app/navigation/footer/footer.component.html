@@ -1,13 +1,18 @@
-<div class="menu" [class.slideIn]="isVisible" [class.slideOut]="!isVisible">
-  <div class="dropdown-option" (click)="resetPage()">
+<div
+  class="menu"
+  [class.slideIn]="isVisible"
+  [class.slideOut]="!isVisible"
+  [class.mobile]="isMobile"
+>
+  <div class="dropdown-option" [class.mobile]="isMobile" (click)="resetPage()">
     <fa-icon [icon]="faChevronRight" />ZRESETUJ USTAWIENIA
   </div>
-  <div class="dropdown-option" (click)="toggleName()">
+  <div class="dropdown-option" [class.mobile]="isMobile" (click)="toggleName()">
     <fa-icon [icon]="faChevronRight" />POKAŻ DANE OSOBOWE
   </div>
 </div>
 <div class="footer">
   <app-cia></app-cia>
-  <div class="company" [hidden]="isMobile">nabthat</div>
+  <div class="company" [class.hidden]="isMobile">nabthat</div>
   <app-dropdown (showMenu)="toogleVisibleMenu()"></app-dropdown>
 </div>

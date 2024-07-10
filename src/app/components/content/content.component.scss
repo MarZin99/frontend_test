@@ -1,10 +1,14 @@
 .container {
   overflow: auto;
+  overflow-x: hidden;
   height: 100%;
   background-color: rgb(42, 45, 54);
   color: white;
   display: grid;
   grid-template-rows: min-content auto;
+  &.mobile {
+    padding-top: 1rem;
+  }
   .row {
     display: flex;
     justify-content: center;
@@ -28,8 +32,16 @@
     height: 100%;
     display: grid;
     grid-template-columns: 33.3333% 33.3333% 33.3333%;
+    &.mobile {
+      grid-template-columns: auto auto;
+    }
     .block {
       height: 100%;
+      &.mobile {
+        &:nth-child(3) {
+          grid-column: 1 /3;
+        }
+      }
     }
   }
 }

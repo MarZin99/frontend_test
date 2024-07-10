@@ -1,11 +1,21 @@
-<div class="container">
-  <div class="title">BLOK DRUGI</div>
-  <div class="content">
-    <div class="button-wrapper">
-      <button class="button" (click)="editSentencesList('replace')">
+<div class="container" [class.mobile]="isMobile">
+  <div class="title" [class.mobile]="isMobile">BLOK DRUGI</div>
+  <div class="content" [class.mobile]="isMobile">
+    <div class="button-wrapper" [class.mobile]="isMobile">
+      <button
+        class="button"
+        [class.mobile]="isMobile"
+        (click)="editSentencesList('replace')"
+      >
         ZASTĄP
       </button>
-      <button class="button" (click)="editSentencesList('add')">DOKLEJ</button>
+      <button
+        class="button"
+        [class.mobile]="isMobile"
+        (click)="editSentencesList('add')"
+      >
+        DOKLEJ
+      </button>
     </div>
   </div>
 </div>

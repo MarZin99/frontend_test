@@ -21,7 +21,6 @@
     border-radius: 3px;
     display: flex;
     color: rgb(164, 168, 180);
-    font-size: 0.75rem;
     font-weight: 600;
     background-color: rgb(42, 45, 54);
     &.inverted {
@@ -68,12 +67,5 @@
     &:hover {
       background-color: orange;
     }
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  //medium
-  :root {
-    font-size: 1.4rem;
   }
 }

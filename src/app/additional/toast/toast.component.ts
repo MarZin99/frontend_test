@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Toast, ToastrService, ToastPackage } from 'ngx-toastr';
+import { Toast } from 'ngx-toastr';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faExclamationTriangle,

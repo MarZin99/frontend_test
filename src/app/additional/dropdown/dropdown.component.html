@@ -1,7 +1,11 @@
 <div class="container">
-  <button class="dropdown-button button inverted" (click)="editSentencesList()">
+  <button
+    class="dropdown-button button inverted"
+    [class.mobile]="isMobile"
+    (click)="editSentencesList()"
+  >
     <div class="options-wrapper" [hidden]="menuIsHidden"></div>
-    <div>POKAŻ</div>
-    <div><fa-icon [icon]="faChevronUp" /></div>
+    <div [class.mobile]="isMobile">POKAŻ</div>
+    <div><fa-icon [icon]="faChevronUp" [class.mobile]="isMobile" /></div>
   </button>
 </div>

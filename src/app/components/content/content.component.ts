@@ -28,6 +28,7 @@ export class ContentComponent implements OnInit {
   sentencesToDisplay: Sentence[] = [];
   randomMIN = 2;
   randomMAX = 0;
+  isMobile = this.deviceService.isMobile();
 
   ngOnInit(): void {
     this.getSentencesFromFile();

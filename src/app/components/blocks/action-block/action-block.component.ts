@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-action-block',
@@ -8,6 +9,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './action-block.component.scss',
 })
 export class ActionBlockComponent {
+  constructor(private deviceDetector: DeviceDetectorService) {}
+  isMobile = this.deviceDetector.isMobile();
   @Output() editSentence = new EventEmitter<string>();
 
   editSentencesList(value: string) {

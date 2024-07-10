@@ -6,9 +6,19 @@
 
   .dropdown-button {
     width: 10rem;
+    &.mobile {
+      width: 12rem;
+      height: 3rem;
+    }
     fa-icon {
       margin: auto 0 0 0.25rem;
       font-size: 0.75rem;
+      &.mobile {
+        font-size: 1.5rem;
+      }
+    }
+    .mobile {
+      font-size: 2rem;
     }
 
     .options-wrapper {
@@ -17,9 +27,6 @@
       height: 3rem;
       background-color: white;
       color: black;
-      animation-duration: 600ms;
-      animation-name: slide;
-      transform: translateY(-3.5rem);
 
       .dropdown-option {
         margin-top: 0.5rem;
@@ -36,14 +43,5 @@
         }
       }
     }
-  }
-}
-
-@keyframes slide {
-  from {
-    transform: translateY(0rem);
-  }
-  to {
-    transform: translateY(-3.5rem);
   }
 }

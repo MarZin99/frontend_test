@@ -22,10 +22,14 @@
     .tag {
       border-radius: 3px;
       height: 2rem;
+
       width: fit-content;
       display: grid;
       grid-template-columns: 5fr 1rem;
       grid-template-rows: auto;
+      &.mobile {
+        margin: 15px;
+      }
       .row {
         padding: 5px;
         &:first-child {

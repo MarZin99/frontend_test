@@ -1,18 +1,18 @@
-<div class="container">
+<div class="container" [class.mobile]="isMobile">
   <div class="row">
     <div class="title">
       <h1>Nagłówek H1</h1>
       <div class="underline"></div>
     </div>
   </div>
-  <div class="block-container">
-    <div class="block">
+  <div class="block-container" [class.mobile]="isMobile">
+    <div class="block" [class.mobile]="isMobile">
       <app-radio-block (radioSelectedEvent)="onRadioSelect($event)" />
     </div>
-    <div class="block">
+    <div class="block" [class.mobile]="isMobile">
       <app-action-block (editSentence)="editDisplayedArray($event)" />
     </div>
-    <div class="block">
+    <div class="block" [class.mobile]="isMobile">
       <app-text-block
         [sentences]="sentencesToDisplay"
         (removeSentence)="removeSentence($event)"

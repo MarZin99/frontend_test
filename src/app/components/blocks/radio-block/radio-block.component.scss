@@ -6,6 +6,10 @@
     justify-content: center;
     margin-bottom: 3rem;
     font-weight: 800;
+    &.mobile {
+      justify-content: start;
+      margin: 0 0 0.5rem 0.5rem;
+    }
   }
   .content {
     display: flex;
@@ -16,15 +20,6 @@
       }
       display: flex;
       align-items: center;
-    }
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .container {
-    .title {
-      justify-content: start;
-      margin: 0 0 0.5rem 0.5rem;
     }
   }
 }
