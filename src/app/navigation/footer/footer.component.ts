@@ -5,6 +5,7 @@ import { CiaComponent } from '../../additional/cia/cia.component';
 import { DropdownComponent } from '../../additional/dropdown/dropdown.component';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { NameProvider } from '../../services/name.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-footer',
@@ -14,9 +15,13 @@ import { NameProvider } from '../../services/name.service';
   imports: [FontAwesomeModule, CiaComponent, DropdownComponent],
 })
 export class FooterComponent {
-  constructor(private nameProvider: NameProvider) {
+  constructor(
+    private nameProvider: NameProvider,
+    private deviceService: DeviceDetectorService
+  ) {
     nameProvider = nameProvider;
   }
+  isMobile = this.deviceService.isMobile();
   faFontAwesome = faFontAwesome;
   faChevronRight = faChevronRight;
 

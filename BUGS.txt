@@ -3,3 +3,4 @@
 3. LOCAL STORAGE DOESNT STORE DATA! ()
 4. Toast makes error
 5. Reset Page
+6. @media deosnt work

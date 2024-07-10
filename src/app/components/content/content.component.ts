@@ -6,6 +6,7 @@ import { Sentence } from '../../models/sentence.model';
 import { HttpClient } from '@angular/common/http';
 import { ToastService } from '../../services/toast.service';
 import { LocalStorage } from '../../services/localStorage.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-content',
@@ -18,7 +19,8 @@ export class ContentComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private toastService: ToastService,
-    private localStorage: LocalStorage
+    private localStorage: LocalStorage,
+    private deviceService: DeviceDetectorService
   ) {}
 
   private dataUrl: string = '../../../assets/data.json';

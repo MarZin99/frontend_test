@@ -8,6 +8,6 @@
 </div>
 <div class="footer">
   <app-cia></app-cia>
-  <div class="company">nabthat</div>
+  <div class="company" [hidden]="isMobile">nabthat</div>
   <app-dropdown (showMenu)="toogleVisibleMenu()"></app-dropdown>
 </div>
